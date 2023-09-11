@@ -1,5 +1,6 @@
 import React, { useState,  useContext} from 'react'
 import { AuthContext, } from '../../contexts/auth'
+import { useNavigate } from 'react-router-dom'
 
 import {
   Container,
@@ -21,6 +22,7 @@ import {
 
 const SignIn = () => {
 
+  const navigate = useNavigate()
   const {login} = useContext(AuthContext)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,7 +40,7 @@ const SignIn = () => {
   }
 
   const MessageButtomclick = () => {
-    alert('123')
+    navigate('/signup')
   }
 
   return (
