@@ -15,6 +15,8 @@ import {
   SignInput
 } from '../SignIn/style';
 
+import Loading from '../../components/Loading'
+
 //import SignInput from '../../components/SignInput';
 
 //import BarberLogo from '../../assets/barber.svg';
@@ -30,8 +32,11 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmpassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const SignClick = async () => {
+
+    setLoading(true);
 
     if (name !== '' && email !== '' && password !== '' && confirmpassword !== '') {
       
@@ -59,6 +64,10 @@ const SignUp = () => {
   
   return (
     <Container>
+
+      {loading &&
+        <Loading/>
+      }
 
       <InputArea>
         <SignInput

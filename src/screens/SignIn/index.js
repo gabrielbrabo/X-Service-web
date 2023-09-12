@@ -41,7 +41,7 @@ const SignIn = () => {
     } else {
       alert('Preencha os campos!')
     }
-    
+
   }
 
   const MessageButtomclick = () => {
@@ -50,9 +50,11 @@ const SignIn = () => {
 
   return (
     <Container>
+
       {loading &&
         <Loading/>
       }
+      
       <InputArea>
         
         <SignInput

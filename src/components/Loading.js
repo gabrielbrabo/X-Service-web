@@ -9,7 +9,8 @@ const LoadingIcon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background-color: rgba(10,23,59,0.6);
+    
     .icon {
         font-size:50px;
         animation: icon-spin infinite 0.6s linear;
