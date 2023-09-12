@@ -13,6 +13,8 @@ import {
   SignInput,
 } from './style';
 
+import Loading from '../../components/Loading'
+
 //import SignInput from '../../components/SignInput';
 
 //import BarberLogo from '../../assets/barber.svg';
@@ -26,8 +28,11 @@ const SignIn = () => {
   const {login} = useContext(AuthContext)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const SignClick = async () => {
+
+    setLoading(true);
 
     if (email !== '' && password !== '') {
 
@@ -45,7 +50,9 @@ const SignIn = () => {
 
   return (
     <Container>
-
+      {loading &&
+        <Loading/>
+      }
       <InputArea>
         
         <SignInput
@@ -75,6 +82,7 @@ const SignIn = () => {
         <SignMessageButtonText>Ainda não possui uma conta?</SignMessageButtonText>
         <SignMessageButtonTextBold>Cadastre-se!</SignMessageButtonTextBold>
       </SignMessageButton>
+
     </Container>
   )
 }

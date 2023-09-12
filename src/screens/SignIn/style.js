@@ -7,6 +7,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const LoadingIcon = styled.div`
+  background-color: black;
+  display: flex;
+  justify-content: center;
+`;
 export const InputArea = styled.div`
   display: grid;
   justify-content: center;
