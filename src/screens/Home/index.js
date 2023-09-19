@@ -35,13 +35,13 @@ const Home = () => {
   const [raio, setRaio] = useState('');
   //const [coords, setCoords] = useState(null);
   const [loading, setLoading] = useState(false);
-  //const [list, setList] = useState([]);
+ // const [list, setList] = useState([]);
   
   const getUserLocation = async () => {
    
-    /*let { status } = await requestForegroundPermissionsAsync()
+    //let { status } = await requestForegroundPermissionsAsync()
 
-    if ( status === 'granted' ) {
+    if ( 'geolocation' in navigator ) {
 
       if (!raio) {
 
@@ -50,12 +50,19 @@ const Home = () => {
       }
 
       setLoading(true);
-      setList([]);
+      //setList([]);
 
-      const info = await getCurrentPositionAsync()
-      console.log(info.coords)
+      navigator.geolocation.getCurrentPosition(success,)
       
-      let latClient = null;
+      function success(pos) {
+        let crd = pos.coords;
+        
+        console.log("Sua posição atual é:");
+        console.log("Latitude : " + crd.latitude);
+        console.log("Longitude: " + crd.longitude);
+      }
+
+      /*let latClient = null;
       let lonClient = null;
 
       if (info) {
@@ -78,11 +85,10 @@ const Home = () => {
 
         alert("erro")
 
-      }
+      }*/
       
-      */setLoading(false)
-    
-    
+      setLoading(false)
+    }
   }
 
   //const getBarbers = async () => {
@@ -99,6 +105,22 @@ const Home = () => {
             <AiOutlineSearch/>
           </SearchButton>
         </HeaderArea>
+
+        <Raio>Selecione um categoria</Raio>
+
+        <LocationArea >
+          
+          <CategoryInput
+            type="text"
+            placeholder = 'Categoria'
+            //value = {raio}
+            onChange={
+              (e) => setRaio(e.target.value)
+            }
+          >
+          </CategoryInput>
+
+        </LocationArea>
         
         <Raio>Digite um raio de busca</Raio>
 
@@ -121,23 +143,7 @@ const Home = () => {
 
         </LocationArea>
 
-        <Raio>Selecione um categoria</Raio>
-
-        <LocationArea >
-          
-          <CategoryInput
-            type="text"
-            placeholder = 'Categoria'
-            //value = {raio}
-            onChange={
-              (e) => setRaio(e.target.value)
-            }
-          >
-          </CategoryInput>
-
-        </LocationArea>
-
-        <LocationFinder onPress={getUserLocation}>
+        <LocationFinder onClick={getUserLocation}>
           Busca
         </LocationFinder>
 
