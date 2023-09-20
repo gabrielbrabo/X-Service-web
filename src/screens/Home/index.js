@@ -36,10 +36,25 @@ const Home = () => {
   //const [coords, setCoords] = useState(null);
   const [loading, setLoading] = useState(false);
  // const [list, setList] = useState([]);
+  const [mobile, setMobile] = useState(false);
   
   const getUserLocation = async () => {
    
     //let { status } = await requestForegroundPermissionsAsync()
+
+    if( navigator.userAgent.match(/Android/i)
+      || navigator.userAgent.match(/webOS/i)
+      || navigator.userAgent.match(/iPhone/i)
+      || navigator.userAgent.match(/iPad/i)
+      || navigator.userAgent.match(/iPod/i)
+      || navigator.userAgent.match(/BlackBerry/i)
+      || navigator.userAgent.match(/Windows Phone/i)
+    ){
+      setMobile(true)
+    } else {
+      setMobile(false)
+    }
+    console.log(mobile)
 
     if ( 'geolocation' in navigator ) {
 
@@ -121,27 +136,53 @@ const Home = () => {
           </CategoryInput>
 
         </LocationArea>
+
+        {
+          mobile === true ?
+
+          <Raio>Digite um raio de busca</Raio>
+          :
+          <Raio>Digite sua cidade atual</Raio>
+        }
         
-        <Raio>Digite um raio de busca</Raio>
+        {
+          mobile === true ?
 
-        <LocationArea >
-          
-          <LocationInput
-            type="number"
-            placeholder = '50km'
-            value = {raio}
-            onChange={
-              (e) => setRaio(e.target.value)
+          <LocationArea >
+            
+            <LocationInput
+              type="number"
+              placeholder = '50km'
+              value = {raio}
+              onChange={
+                (e) => setRaio(e.target.value)
+              }
+            >
+            </LocationInput>
+  
+            {
+              raio &&
+              <KM>Km</KM>
             }
-          >
-          </LocationInput>
+  
+          </LocationArea>
+          :
+          <LocationArea >
+            
+            <LocationInput
+              type="text"
+              placeholder = 'Cidade'
+              //value = {raio}
+              //</LocationArea>onChange={
+              //  (e) => setRaio(e.target.value)
+              //}
+            >
+            </LocationInput>
 
-          {
-            raio &&
-            <KM>Km</KM>
-          }
+          </LocationArea>
+        }
 
-        </LocationArea>
+        
 
         <LocationFinder onClick={getUserLocation}>
           Busca
