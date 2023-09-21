@@ -1,4 +1,4 @@
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   Container,
@@ -21,26 +21,24 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 //import SearchIcon from '../../assets/search.svg';
 //import MyLocationIcon from '../../assets/my_location.svg';
-//import BarberItem from '../../components/BarberItem';
+import BarberItem from '../../components/BarberItem';
 
 /*import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync
 } from 'expo-location'*/
 
-//import { SearchByLocation } from '../../Api'
+import { SearchByLocation } from '../../Api'
 
 const Home = () => {
 
   const [raio, setRaio] = useState('');
   //const [coords, setCoords] = useState(null);
   const [loading, setLoading] = useState(false);
- // const [list, setList] = useState([]);
+  const [list, setList] = useState([]);
   const [mobile, setMobile] = useState(false);
-  
-  const getUserLocation = async () => {
-   
-    //let { status } = await requestForegroundPermissionsAsync()
+
+  useEffect(() => {
 
     if( navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
@@ -50,60 +48,103 @@ const Home = () => {
       || navigator.userAgent.match(/BlackBerry/i)
       || navigator.userAgent.match(/Windows Phone/i)
     ){
+
       setMobile(true)
+
     } else {
+      
       setMobile(false)
+
     }
-    console.log(mobile)
+  },[]);
+  
+  const getUserLocation = async () => {
+   
+    //let { status } = await requestForegroundPermissionsAsync()
 
-    if ( 'geolocation' in navigator ) {
+    if( mobile === true ) {
 
-      if (!raio) {
+      if ( 'geolocation' in navigator ) {
 
-        alert("Adicione um raio de busca!")
+        if (!raio) {
+  
+          alert("Adicione um raio de busca!")
+          
+        }
+  
+        setLoading(true);
+        setList([]);
+  
+        navigator.geolocation.getCurrentPosition(success,)
         
-      }
+        async function success (pos) {
 
-      setLoading(true);
-      //setList([]);
+          let latClient = '-15.9514624'
+          let lonClient = '-44.8561152'
+          
+          if (pos) {
 
-      navigator.geolocation.getCurrentPosition(success,)
-      
-      function success(pos) {
-        let crd = pos.coords;
-        
-        console.log("Sua posição atual é:");
-        console.log("Latitude : " + crd.latitude);
-        console.log("Longitude: " + crd.longitude);
-      }
+            //latClient = pos.coords.latitude;
+            //lonClient = pos.coords.longitude;
+            
+          }
 
-      /*let latClient = null;
-      let lonClient = null;
+          console.log(raio, latClient, lonClient)
 
-      if (info) {
-        latClient = info.coords.latitude;
-        lonClient = info.coords.longitude;
-      }
-
-      const res = await SearchByLocation(raio, latClient, lonClient)
+          const res = await SearchByLocation(raio, latClient, lonClient)
+          
+          if (res.data) {
+          
+            const dataFilter = res.data.data.filter((data) => {
     
-      if (res.data) {
+              return data
+    
+            })
+            setList(dataFilter)
+    
+          } else {
+    
+            alert("erro")
+    
+          }
         
-        const dataFilter = res.data.data.filter((data) => {
-
-          return data
-
-        })
-        setList(dataFilter)
-
-      } else {
-
-        alert("erro")
-
-      }*/
+        }
+  
+        /*let latClient = null;
+        let lonClient = null;
+  
+        if (info) {
+          latClient = info.coords.latitude;
+          lonClient = info.coords.longitude;
+        }
+  
+        const res = await SearchByLocation(raio, latClient, lonClient)
       
-      setLoading(false)
+        if (res.data) {
+          
+          const dataFilter = res.data.data.filter((data) => {
+  
+            return data
+  
+          })
+          setList(dataFilter)
+  
+        } else {
+  
+          alert("erro")
+  
+        }*/
+        
+        setLoading(false)
+      }
+      
+    } else {
+
     }
+    
+    console.log(mobile)
+    console.log(list)
+    
   }
 
   //const getBarbers = async () => {
@@ -172,10 +213,10 @@ const Home = () => {
             <LocationInput
               type="text"
               placeholder = 'Cidade'
-              //value = {raio}
-              //</LocationArea>onChange={
-              //  (e) => setRaio(e.target.value)
-              //}
+              value = {raio}
+              onChange={
+                (e) => setRaio(e.target.value)
+              }
             >
             </LocationInput>
 
@@ -197,11 +238,11 @@ const Home = () => {
 
           
 
-          {//list.map((item, key) => (
+          {list.map((item, key) => (
             
-            //<BarberItem key={key} data={item} />
+            <BarberItem key={key} data={item} />
             
-          //))
+          ))
           }
 
         </ListArea>
