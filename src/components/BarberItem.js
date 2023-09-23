@@ -18,7 +18,9 @@ const Avatar = styled.div`
   border-radius: 20px;
 `;
 const InfoArea = styled.div`
+  display: flex;
   margin-left: 20px;
+  margin-right: 20px;
   justify-content: space-between;
 `;
 const UserName = styled.text`
@@ -34,7 +36,7 @@ const SeeProfileButton = styled.button`
     align-items: center;
 `;
 const SeeProfileButtonText = styled.text`
-  font-size: 13px;
+  font-size: 15px;
   color: #268596;
 `;
 

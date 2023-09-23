@@ -59,17 +59,33 @@ export const checkToken = async (id, token) => {
     }, [])
 }
 
+export const getavataruser = async (idavatar) => {
+    
+    return api.post('/avatar', {
+        idavatar
+    })
+    .catch((error) => {
+        if (error) {
+            const result = JSON.stringify(
+                error.response.data.msg
+            )
+            alert(result)
+            window.location.reload()
+        }
+    }, [])
+}
+
 export const getprouser = async () => {
 
     return api.get('/professionaluser')
 
 }
 
-/*export const getavatar = async () => {
+export const getavatar = async () => {
 
     return api.get('/avatar')
 
-}*/
+}
 
 export const SearchByLocation = async (raio, latClient, lonClient) => {
     

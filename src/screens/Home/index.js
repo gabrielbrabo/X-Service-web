@@ -79,13 +79,13 @@ const Home = () => {
         
         async function success (pos) {
 
-          let latClient = '-15.9514624'
-          let lonClient = '-44.8561152'
+          let latClient = null;
+          let lonClient = null;
           
           if (pos) {
 
-            //latClient = pos.coords.latitude;
-            //lonClient = pos.coords.longitude;
+            latClient = pos.coords.latitude;
+            lonClient = pos.coords.longitude;
             
           }
 
