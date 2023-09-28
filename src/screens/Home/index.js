@@ -142,8 +142,8 @@ const Home = () => {
 
     }
     
-    console.log(mobile)
-    console.log(list)
+    //console.log(mobile)
+    //console.log(list)
     
   }
 

@@ -1,7 +1,9 @@
-import React from 'react';
+import { React,} from 'react';
 import styled from 'styled-components';
 
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
+
+//import { getavataruser } from '../Api'
 
 //import Stars from '../components/Stars';
 
@@ -12,7 +14,7 @@ const Area = styled.div`
   padding: 15px;
   flex-direction: row;
 `;
-const Avatar = styled.div`
+const Avatar = styled.img`
   width: 88px;
   height: 88px;
   border-radius: 20px;
@@ -42,19 +44,20 @@ const SeeProfileButtonText = styled.text`
 
 export default function BarberItem ({ data }) {
 
-  const navigate = useNavigate()
-
   const clickProfile = () => {
-    navigate('', {
+    /*navigate('', {
       id: data._id,
       avatar: data.avatar,
       name: data.name,
       //stars: data.stars
-    });
+    });*/
   }
+
+  const avatar = data.avatar 
+  console.log(avatar) 
   return (
     <Area onPress={clickProfile}>
-      <Avatar source={{ uri: data.avatar }} />
+      <Avatar src={ `${ avatar }`} loading="eager" alt="" />
       <InfoArea>
         <UserName>{data.name}</UserName>
 

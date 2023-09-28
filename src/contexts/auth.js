@@ -30,10 +30,12 @@ export const AuthProvider = ({children}) => {
         const loggedUser = response.data.email
         const token = response.data.token
         const avatar = response.data.avatar
+        const proUser = response.data.proUser
         sessionStorage.setItem("id", 
         JSON.stringify(Id))
         sessionStorage.setItem("token", token)
         sessionStorage.setItem("avatar", avatar)
+        sessionStorage.setItem("proUser", proUser)
         
         api.defaults.headers.Authorization = `Bearer ${token}`
         setUser(loggedUser)
