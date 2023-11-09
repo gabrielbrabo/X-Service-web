@@ -6,6 +6,8 @@ export const Container = styled.div`
   background-color: #63C2D1;
   justify-content: center;
   align-items: center;
+  
+  position: relative;
 `;
 export const LoadingIcon = styled.div`
   background-color: black;

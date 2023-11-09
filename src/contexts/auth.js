@@ -41,6 +41,8 @@ export const AuthProvider = ({children}) => {
         setUser(loggedUser)
         
         navigate('/')
+
+        window.location.reload()
         
     }
     

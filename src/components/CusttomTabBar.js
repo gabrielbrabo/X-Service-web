@@ -1,25 +1,33 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
+import { MdHome, MdSearch, MdFavorite } from "react-icons/md"
+import { RxAvatar } from "react-icons/rx"
 
-import { UserContext } from "../contexts/UserContext";
+//import { UserContext } from "../contexts/UserContext";
 
+/*
 import HomeIcon from "../assets/home";
 import SearchIcon from "../assets/search";
 import TodayIcon from "../assets/today";
 import FavoriteIcon from "../assets/favorite";
 import AccountIcon from "../assets/account";
+*/
 
-const TabArea = styled`
+const TabArea = styled.div`
+  display: flex;
+  position: fixed;
   height: 60px;
+  width: 100%;
   background-color: #4EADBE;
-  flex-direction: row;
+  z-index: 9999;
 `;
-const TabItem = styled`
+const TabItem = styled.div`
+  display:flex;
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
-const TabItemCenter = styled`
+/*const TabItemCenter = styled.div`
   width: 70px;
   height: 70px;
   justify-content: center;
@@ -28,40 +36,42 @@ const TabItemCenter = styled`
   border-radius: 35px;
   border: 3px solid #4EADBE;
   margin-top: -20px;
-`;
-const AvatarIcon = styled`
+`;*/
+const AvatarIcon = styled.img`
   width: 24px;
   height: 24px;
   border-radius: 12px;
 `;
 
-export default ({ state, navigation }) => {
+export default function CusttomTabBar ( ) {
 
-  const { state: user } = useContext(UserContext);
+  /*const { state: user } = useContext(UserContext);
 
   const goTo = (screenName) => {
     navigation.navigate(screenName);
-  }
+    
+  }*/
 
+  const avatar = sessionStorage.getItem('avatar')
+
+  console.log("avatar",  avatar)
+  
   return (
     <TabArea>
-        <TabItem onPress={() => goTo("Home")}>
-          <HomeIcon style={{opacity: state.index===0? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
+        <TabItem>
+          <MdHome width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItem onPress={() => goTo("Search")}>
-           <SearchIcon style={{opacity: state.index===1? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
+        <TabItem>
+           <MdSearch width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItemCenter onPress={() => goTo("Appointments")}>
-          <TodayIcon width="32" height="32" fill="#4EADBE" />
-        </TabItemCenter>
-        <TabItem onPress={() => goTo("Favorites")}>
-          <FavoriteIcon style={{opacity: state.index===3? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
+        <TabItem >
+          <MdFavorite width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItem onPress={() => goTo("Profile")}>
-            {user.avatar != '' ?
-              <AvatarIcon source={{uri: user.avatar}} />
+        <TabItem >
+            {avatar ?
+              <AvatarIcon src={`${avatar}`}  />
               :
-              <AccountIcon style={{opacity: state.index===4? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
+              <RxAvatar  width="24" height="24" fill="#FFFFFF" />
             }
         </TabItem>
   </TabArea>

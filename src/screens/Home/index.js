@@ -16,6 +16,8 @@ import {
   Raio
 } from './style';
 
+//import tabBar from '../../components/CusttomTabBar'
+
 import { AiOutlineSearch } from 'react-icons/ai';
 
 
@@ -37,6 +39,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState([]);
   const [mobile, setMobile] = useState(false);
+  //const [reload, setReload] = useState(false);
 
   useEffect(() => {
 
@@ -56,6 +59,9 @@ const Home = () => {
       setMobile(false)
 
     }
+
+    
+
   },[]);
   
   const getUserLocation = async () => {

@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
   background-color: #63C2D1;
-  min-height: 100vh;
+  min-height: 94vh;
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
 `;
 export const Scroller = styled.div`
   display: grid;
+  background-color: #63C2D1;
   align-items: center;
   padding: 20px;
+  position: absolute;
 `;
 export const HeaderArea = styled.div`
   margin-bottom: 20px;
@@ -96,6 +99,7 @@ export const LoadingIcon = styled`
 `;
 export const ListArea = styled.div`
   margin-top: 30px;
+  margin-bottom: 30px;
 `;
 export const KM = styled.text`
   font-size: 25px;
