@@ -8,6 +8,7 @@ import styled from 'styled-components';
 //import Stars from '../components/Stars';
 
 const Area = styled.div`
+width 100%;
   background: #fff;
   margin-bottom: 20px;
   border-radius: 20px;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   background-color: #63C2D1;
-  min-height: 89vh;
+  min-height: 100vh;
   justify-content: center;
   padding-left: 30px;
   padding-right: 30px;
@@ -98,6 +98,7 @@ export const LoadingIcon = styled`
   margin-top: 50px;
 `;
 export const ListArea = styled.div`
+  width 100%;
   margin-top: 30px;
   margin-bottom: 30px;
 `;
