@@ -100,7 +100,7 @@ export const LoadingIcon = styled`
 export const ListArea = styled.div`
   width 100%;
   margin-top: 30px;
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 `;
 export const KM = styled.text`
   font-size: 25px;
