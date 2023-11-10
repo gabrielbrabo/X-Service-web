@@ -18,6 +18,7 @@ const TabArea = styled.div`
   position: fixed;
   height: 60px;
   width: 100%;
+  margin-top: 35px;
   background-color: #4EADBE;
 `;
 const TabItem = styled.div`
