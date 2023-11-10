@@ -18,8 +18,8 @@ const TabArea = styled.div`
   position: fixed;
   height: 60px;
   width: 100%;
-  margin-top: 35px;
   background-color: #4EADBE;
+  z-index: 9999;
 `;
 const TabItem = styled.div`
   display:flex;
