@@ -16,7 +16,7 @@ import AccountIcon from "../assets/account";
 const TabArea = styled.div`
   display: flex;
   position: fixed;
-  height: 150px;
+  height: 80px;
   width: 100%;
   background-color: #4EADBE;
   z-index: 9999;
