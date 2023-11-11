@@ -7,9 +7,14 @@ const Container = styled.div`
 `;
 
 function App() {
+
+  const id = sessionStorage.getItem("id")
+
   return (
     <Container>
-      <TabBar/>
+
+      {id && <TabBar/> }
+      
       <AppRoutes/>
     </Container>
   );
