@@ -9,8 +9,8 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      <AppRoutes/>
       <TabBar/>
+      <AppRoutes/>
     </Container>
   );
 }
