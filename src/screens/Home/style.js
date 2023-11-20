@@ -11,7 +11,7 @@ export const Scroller = styled.div`
   background-color: #63C2D1;
   align-items: center;
   width: 100%;
-  margin-top: 85px;
+  margin-top: 100px;
   position: absolute;
 `;
 export const HeaderArea = styled.div`
