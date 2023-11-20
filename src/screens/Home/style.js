@@ -22,8 +22,7 @@ export const HeaderArea = styled.div`
   align-items: center;
 `;
 export const HeaderTitle = styled.text`
-  width: 260px;
-  font-size: 24px;
+  font-size: 50px;
   font-weight: bold;
   color: #fff;
 `;
