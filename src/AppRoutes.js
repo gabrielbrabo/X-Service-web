@@ -12,6 +12,9 @@ import { AuthProvider, AuthContext } from './contexts/auth'
 import SignUp from "./screens/SignUp"
 import SignIn from "./screens/SignIn"
 import Home from "./screens/Home"
+import Search from "./screens/Search"
+import Favorites from "./screens/Favorites"
+import Profile from "./screens/Profile"
 
 const AppRoutes = () => {
 
@@ -38,6 +41,21 @@ const AppRoutes = () => {
                     <Route exact path="/" element={
                         <Private>
                             <Home/>
+                        </Private>
+                    }/>
+                    <Route exact path="/search" element={
+                        <Private>
+                            <Search/>
+                        </Private>
+                    }/>
+                    <Route exact path="/favorites" element={
+                        <Private>
+                            <Favorites/>
+                        </Private>
+                    }/>
+                    <Route exact path="/profile" element={
+                        <Private>
+                            <Profile/>
                         </Private>
                     }/>
                 </Routes>

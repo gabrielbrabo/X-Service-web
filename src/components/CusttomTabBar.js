@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { MdHome, MdSearch, MdFavorite } from "react-icons/md"
 import { RxAvatar } from "react-icons/rx"
 
+//import { useNavigate } from 'react-router-dom'
+
 //import { UserContext } from "../contexts/UserContext";
 
 /*
@@ -45,11 +47,19 @@ const AvatarIcon = styled.img`
 
 export default function CusttomTabBar ( ) {
 
-  /*const { state: user } = useContext(UserContext);
+  //const { state: user } = useContext(UserContext);
 
   const goTo = (screenName) => {
-    navigation.navigate(screenName);
+    window.location.assign(screenName);
     
+  }
+
+  
+
+  /*const SignClick = async () => {
+
+    window.location.href = "/";
+
   }*/
 
   const avatar = sessionStorage.getItem('avatar')
@@ -58,16 +68,16 @@ export default function CusttomTabBar ( ) {
   
   return (
     <TabArea>
-        <TabItem>
+        <TabItem onClick={() => goTo("/")}>
           <MdHome width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItem>
+        <TabItem onClick={() => goTo("/search")}>
            <MdSearch width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItem >
+        <TabItem onClick={() => goTo("/favorites")}>
           <MdFavorite width="24" height="24" fill="#FFFFFF" />
         </TabItem>
-        <TabItem >
+        <TabItem onClick={() => goTo("/profile")}>
             {avatar ?
               <AvatarIcon src={`${avatar}`}  />
               :
