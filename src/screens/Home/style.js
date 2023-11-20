@@ -11,12 +11,12 @@ export const Scroller = styled.div`
   background-color: #63C2D1;
   align-items: center;
   width: 100%;
-  margin-top: 75px;
+  margin-top: 85px;
   position: absolute;
 `;
 export const HeaderArea = styled.div`
-  margin-bottom: 20px;
-  margin-left: 15px;
+  margin-bottom: 30px;
+  margin-left: 25px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
