@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 const Area = styled.div`
   background: #fff;
-  margin: 20px;
+  margin: 30px;
   border-radius: 20px;
   padding: 15px;
   flex-direction: row;
