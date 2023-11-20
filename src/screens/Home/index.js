@@ -162,7 +162,7 @@ const Home = () => {
       <Scroller>
 
         <HeaderArea>
-          <HeaderTitle numberOfLiner={2}>Encontre o seu Salão favorito!</HeaderTitle>
+          <HeaderTitle numberOfLiner={2}>Encontre o seu Serviço favorito!</HeaderTitle>
           <SearchButton >
             <AiOutlineSearch/>
           </SearchButton>

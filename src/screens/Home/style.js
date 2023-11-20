@@ -16,6 +16,7 @@ export const Scroller = styled.div`
 `;
 export const HeaderArea = styled.div`
   margin-bottom: 20px;
+  margin-left: 15px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
