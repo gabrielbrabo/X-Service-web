@@ -5,15 +5,14 @@ export const Container = styled.div`
   background-color: #63C2D1;
   min-height: 94vh;
   justify-content: center;
-  padding-top: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
 `;
 export const Scroller = styled.div`
   display: grid;
   background-color: #63C2D1;
   align-items: center;
-  padding: 20px;
+  width: 100%;
+  
+  margin-top: 75px;
   position: absolute;
 `;
 export const HeaderArea = styled.div`
