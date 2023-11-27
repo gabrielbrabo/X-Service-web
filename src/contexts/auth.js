@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext()
 
+export const Screen  = (screenName) => {
+
+    console.log(screenName)
+    
+}
+
 export const AuthProvider = ({children}) => {
 
     const navigate = useNavigate()

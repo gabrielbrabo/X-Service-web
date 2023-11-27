@@ -1,14 +1,17 @@
 import React from 'react';
-import { Container, } from './style';
+import { 
+  Container,
+  Title, 
+} from './style';
 
 const Favorites = () => {
   
   return (
     <Container>
-      Favorites
+      <Title>Favorites</Title> 
     </Container>
   )
-} 
+}
 
 export default Favorites
 

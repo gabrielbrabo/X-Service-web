@@ -1,11 +1,14 @@
 import React from 'react';
-import { Container, } from './style';
+import { 
+  Container,
+  Title, 
+} from './style';
 
 const Profile = () => {
   
   return (
     <Container>
-      Profile
+      <Title>Profile</Title> 
     </Container>
   )
 }

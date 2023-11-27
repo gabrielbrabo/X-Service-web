@@ -1,11 +1,14 @@
 import React from 'react';
-import { Container, } from './style';
+import { 
+  Container,
+  Title, 
+} from './style';
 
 const Search = () => {
   
   return (
     <Container>
-      <>Search</> 
+      <Title>Search</Title> 
     </Container>
   )
 }

@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { MdHome, MdSearch, MdFavorite } from "react-icons/md"
 import { RxAvatar } from "react-icons/rx"
 
-//import { useNavigate } from 'react-router-dom'
-
-//import { UserContext } from "../contexts/UserContext";
+//import { Screen } from ''
 
 /*
 import HomeIcon from "../assets/home";
@@ -46,21 +44,12 @@ const AvatarIcon = styled.img`
 `;
 
 export default function CusttomTabBar ( ) {
-
-  //const { state: user } = useContext(UserContext);
+  
 
   const goTo = (screenName) => {
     window.location.assign(screenName);
     
   }
-
-  
-
-  /*const SignClick = async () => {
-
-    window.location.href = "/";
-
-  }*/
 
   const avatar = sessionStorage.getItem('avatar')
 
