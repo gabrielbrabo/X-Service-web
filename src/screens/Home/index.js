@@ -41,7 +41,7 @@ const Home = () => {
   const [mobile, setMobile] = useState(false);
   //const [reload, setReload] = useState(false);
 
-  useEffect(() => {
+  useEffect( () => {
 
     if( navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
@@ -60,9 +60,43 @@ const Home = () => {
 
     }
 
-    
+    if ( mobile === true ) {
 
-  },[]);
+      const raio = sessionStorage.getItem('raio')
+      const latClient = sessionStorage.getItem('latClient')
+      const lonClient = sessionStorage.getItem('lonClient')
+
+      if (raio & latClient & lonClient) {
+
+        setRaio(raio)
+        
+        getUserStorage(raio, latClient, lonClient)
+        
+      }
+            
+      console.log("raio", raio, "lat", latClient, "lon", lonClient )
+    } else {
+      console.log("desktop")
+    }
+    
+  },[mobile]);
+
+  const getUserStorage = async (raio, latClient, lonClient) => {
+
+    const res = await SearchByLocation(raio, latClient, lonClient)
+          
+    if (res.data) {
+            
+      const dataFilter = res.data.data.filter((data) => {
+      
+        return data
+      
+      })
+
+      setList(dataFilter)  
+    }
+
+  }
   
   const getUserLocation = async () => {
    
@@ -97,22 +131,17 @@ const Home = () => {
 
           console.log(raio, latClient, lonClient)
 
-          const res = await SearchByLocation(raio, latClient, lonClient)
-          
-          if (res.data) {
-          
-            const dataFilter = res.data.data.filter((data) => {
+          await getUserStorage(raio, latClient, lonClient)
+
+          sessionStorage.setItem("raio", raio)
+          sessionStorage.setItem("latClient", latClient)
+          sessionStorage.setItem("lonClient", lonClient)
     
-              return data
-    
-            })
-            setList(dataFilter)
-    
-          } else {
+          /* else {
     
             alert("erro")
     
-          }
+          }*/
         
         }
   
