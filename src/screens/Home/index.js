@@ -66,17 +66,19 @@ const Home = () => {
       const latClient = sessionStorage.getItem('latClient')
       const lonClient = sessionStorage.getItem('lonClient')
 
-      if (raio & latClient & lonClient) {
-
+        console.log("raio", raio,)
+      if (latClient & lonClient) {
+        console.log("raio", raio,)
         setRaio(raio)
-        
+
         getUserStorage(raio, latClient, lonClient)
         
       }
             
-      console.log("raio", raio, "lat", latClient, "lon", lonClient )
-    } else {
-      console.log("desktop")
+    } 
+    
+    if ( mobile === false ){
+      
     }
     
   },[mobile]);
@@ -94,6 +96,9 @@ const Home = () => {
       })
 
       setList(dataFilter)  
+
+      
+      console.log("raio", raio,)
     }
 
   }
