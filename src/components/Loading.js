@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 const LoadingIcon = styled.div`
-    height: 100%;
     width:100%;
+    margin-top: 100%;
+    margin-bottom: 100%;
     position: fixed;
     display: flex;
     justify-content: center;

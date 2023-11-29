@@ -275,6 +275,7 @@ const Home = () => {
         
 
       </Scroller>
+
     </Container>
   )
 }
