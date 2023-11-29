@@ -16,6 +16,8 @@ import {
   Raio
 } from './style';
 
+import Loading from '../../components/Loading'
+
 //import tabBar from '../../components/CusttomTabBar'
 
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -43,6 +45,8 @@ const Home = () => {
 
   useEffect( () => {
 
+    setLoading(true);
+
     if( navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)
@@ -54,9 +58,13 @@ const Home = () => {
 
       setMobile(true)
 
+      setLoading(false);
+
     } else {
       
       setMobile(false)
+
+      setLoading(false);
 
     }
 
@@ -66,9 +74,8 @@ const Home = () => {
       const latClient = sessionStorage.getItem('latClient')
       const lonClient = sessionStorage.getItem('lonClient')
 
-        console.log("raio", raio,)
       if (latClient & lonClient) {
-        console.log("raio", raio,)
+        
         setRaio(raio)
 
         getUserStorage(raio, latClient, lonClient)
@@ -105,8 +112,6 @@ const Home = () => {
   
   const getUserLocation = async () => {
    
-    //let { status } = await requestForegroundPermissionsAsync()
-
     if( mobile === true ) {
 
       if ( 'geolocation' in navigator ) {
@@ -149,31 +154,6 @@ const Home = () => {
           }*/
         
         }
-  
-        /*let latClient = null;
-        let lonClient = null;
-  
-        if (info) {
-          latClient = info.coords.latitude;
-          lonClient = info.coords.longitude;
-        }
-  
-        const res = await SearchByLocation(raio, latClient, lonClient)
-      
-        if (res.data) {
-          
-          const dataFilter = res.data.data.filter((data) => {
-  
-            return data
-  
-          })
-          setList(dataFilter)
-  
-        } else {
-  
-          alert("erro")
-  
-        }*/
         
         setLoading(false)
       }
@@ -193,7 +173,12 @@ const Home = () => {
 
   return (
     <Container>
+
       <Scroller>
+
+        {loading &&
+          <Loading/>
+        }
 
         <HeaderArea>
           <HeaderTitle numberOfLiner={2}>Encontre o seu Serviço favorito!</HeaderTitle>
