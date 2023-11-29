@@ -38,7 +38,7 @@ const Home = () => {
 
   const [raio, setRaio] = useState('');
   //const [coords, setCoords] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState();
   const [list, setList] = useState([]);
   const [mobile, setMobile] = useState(false);
   //const [reload, setReload] = useState(false);
@@ -102,6 +102,8 @@ const Home = () => {
       
       })
 
+      setLoading(false)
+
       setList(dataFilter)  
 
       
@@ -155,7 +157,6 @@ const Home = () => {
         
         }
         
-        setLoading(false)
       }
       
     } else {
